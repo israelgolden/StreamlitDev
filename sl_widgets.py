@@ -1,4 +1,6 @@
 import streamlit as sl
+import time as ts
+from datetime import time
 
 # Let's get rid of the "Made with Streamlit" at the bottom of the page
 sl.markdown("""
@@ -39,3 +41,28 @@ else:
 select = sl.selectbox("Where should we go on a bike tour next?", options= ("Australia","TransAmerica","Bogalusa, LA","Pacific Coast"))
 multi_select = sl.multiselect("What do you want to cook this week?", options = ("Stone Fruit Caprese", "Shrimp Scampi with Orzo", "Hot Rat Soup", "Green Goddess Slaw"))
 sl.write(multi_select)
+
+val = sl.slider("This is a slider", min_value=50,max_value=150)
+
+num_val = sl.number_input("Timber sale value")
+print(num_val)
+text_val2 = sl.text_area("Tell me what most excites you about this timbersale.")
+print(text_val2)
+date_val = sl.date_input("Enter the date of the timber sale")
+print(date_val)
+
+def converter(timer):
+    m,s,mm = timer.split(":")
+    t_s=int(m)*60+int(s)+int(mm)/1000
+    return t_s
+
+timer = sl.time_input("Set Timer", value = time(0,0,0))
+if str(timer) == "00:00:00":
+    sl.write("Please set timer")
+else:
+    sec = converter(str(timer))
+    bar = sl.progress(0)
+    per=sec/100
+    for i in range(100):
+        bar.progress(i+1)
+        ts.sleep(per)
