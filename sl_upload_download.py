@@ -23,6 +23,6 @@ if shapefiles is not None:
         file_details = {"FileName": file.name, "FileType": file.type}
         sl.write(file_details) 
         # Saving
-        with open(os.path.join("/Users/israelgolden/Documents/GitHub/StreamlitTutorial/DownloadFolder",file.name), "wb") as f:
+        with open(os.path.join("/Users/israelgolden/Documents/GitHub/StreamlitDev/DownloadFolder",file.name), "wb") as f:
             f.write(file.getbuffer())
         sl.success("File saved")
