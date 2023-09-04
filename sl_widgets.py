@@ -44,11 +44,11 @@ sl.write(multi_select)
 
 val = sl.slider("This is a slider", min_value=50,max_value=150)
 
-num_val = sl.number_input("Timber sale value")
+num_val = sl.number_input("How many miles do you think you can bike without stopping?")
 print(num_val)
-text_val2 = sl.text_area("Tell me what most excites you about this timbersale.")
+text_val2 = sl.text_area("Tell me how you think you'd feel if you actually biked that far.")
 print(text_val2)
-date_val = sl.date_input("Enter the date of the timber sale")
+date_val = sl.date_input("When should we schedule this bike ride?")
 print(date_val)
 
 def converter(timer):
